@@ -1,1 +1,1 @@
-# Homework-3 esas kod burdadi second branch
+# Homework-3 esas kod  second branch'dadir
