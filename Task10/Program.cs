@@ -15,11 +15,35 @@ namespace Task10
         static void Condition(int a)
         {
             //Shert1 
-            int tekYer = (a / 100000000) * 10000 + ((a / 1000000) % 10) *1000 + ((a / 10000) % 10)*100 + ((a / 100) % 10)*10 + a % 10;
-            int cutYer = ((a / 10000000)%10) * 1000 + ((a / 100000) % 10) *100 + ((a / 1000) % 10)*10 + (a%100) / 10;
-            //Shert2
-            int cem = tekYer + cutYer;
+            // int tekYer = (a / 100000000) * 10000 + ((a / 1000000) % 10) *1000 + ((a / 10000) % 10)*100 + ((a / 100) % 10)*10 + a % 10;
+            // int cutYer = ((a / 10000000)%10) * 1000 + ((a / 100000) % 10) *100 + ((a / 1000) % 10)*10 + (a%100) / 10;
 
+            int tekYer = 0;
+            int count = 0;
+            int dublikatForCut = a;
+            while (a > 0)
+            {
+                int quvvet = (int)Math.Pow(10, count);
+
+                tekYer = tekYer + (a % 10) * quvvet;
+                a /= 100;
+                count++;
+            }
+            int cutYer = 0;
+            int countCut = 0;
+            while (dublikatForCut > 0)
+            {
+                int quvvetc = (int)Math.Pow(10, countCut);
+
+                cutYer = cutYer + ((dublikatForCut%100)/ 10) * quvvetc;
+                dublikatForCut /= 100;
+                countCut++;
+                
+            }
+            //Shert2
+
+            int cem = tekYer + cutYer;
+           
             Console.WriteLine($"Shert1: tek yerdeki: {tekYer} , cut yerdeki: {cutYer}");
             Console.WriteLine($"Shert2: Cemi: {cem}");
         }
